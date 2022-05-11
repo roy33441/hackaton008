@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import "./App.css";
@@ -10,9 +11,29 @@ const useStyles = makeStyles({
   container: {
     backgroundColor: "rgb(246, 244, 239)",
   },
+  photoContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height:'100vh'
+  },
+  photo: {
+    height: '25vh',
+    width: '45vh'
+  }
 });
 function App() {
   const classes = useStyles();
+  const [ openDell, setOpenDell ] = React.useState(true)
+  useEffect(() => {
+    const timer = setTimeout(() => setOpenDell(false), 2000);
+  }, []);
+
+  if (openDell) {
+    return     <div className={classes.photoContainer}>
+      <img className={classes.photo}  src='photos/dell-logo.jpg' />
+    </div>;
+  }
 
   return (
     <div className={classes.container}>
