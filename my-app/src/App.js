@@ -38,7 +38,7 @@ function App() {
   return (
     <div className={classes.container}>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/calm" element={<Calm />} />
       </Routes>

@@ -1,5 +1,13 @@
+body {
+  direction: rtl;
+  font-family: Assistant;
+  background-color: #f6f4ef;
+  height: 100vh;
+}
+
 .App {
   text-align: center;
+  font-family: 'Assistant';
 }
 
 .App-logo {

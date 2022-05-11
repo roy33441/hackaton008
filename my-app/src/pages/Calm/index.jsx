@@ -1,14 +1,16 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import CallIcon from "@mui/icons-material/Call";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
-import Stack from "@mui/material/Stack";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
+<<<<<<< HEAD
 import HomeIcon from "@mui/icons-material/Home";
 import { Typography, IconButton, Dialog } from "@mui/material";
 import { Link } from "react-router-dom";
+=======
+import { IconButton, Dialog } from "@mui/material";
+>>>>>>> 8e147b7968ecf29aac2133f9bdd0a993367a4e94
 
 const useStyles = makeStyles({
   pageContainer: {
@@ -45,9 +47,7 @@ function Calm() {
   const classes = useStyles();
   const [photoOpen, setPhotoOpen] = React.useState(false);
   const [youTubeOpen, setYouTubeOpen] = React.useState(false);
-  localStorage.setItem("phoneNumber", "+972587553330");
   localStorage.setItem("image", "photos/chill.jpeg");
-  localStorage.setItem("videoID", "5NgaS50hFpc");
 
   const handlePhotoClose = () => {
     setPhotoOpen(false);
@@ -94,7 +94,7 @@ function Calm() {
         aria-labelledby="photo-dialog-title"
         aria-describedby="photo-dialog-description"
       >
-        <img src={localStorage.getItem("image")} />
+        <img src={localStorage.getItem("image")} alt="calm" />
       </Dialog>
       <Dialog
         open={youTubeOpen}
@@ -108,9 +108,10 @@ function Calm() {
           width="300"
           height="230"
           src={`https://www.youtube.com/embed/${localStorage.getItem(
-            "videoID"
+            "videoId"
           )}?autoplay=1&mute=1&enablejsapi=1`}
           allow="autoplay"
+          title="video"
         ></iframe>
       </Dialog>
     </div>

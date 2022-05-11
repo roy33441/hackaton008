@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import { makeStyles } from "@mui/styles";
 import img from "./nirvanaLogo.png";
 import SettingsIcon from "@mui/icons-material/SettingsOutlined";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   container: {
@@ -48,10 +49,9 @@ const useStyles = makeStyles({
 });
 
 function Home() {
+  const navigate = useNavigate();
   const classes = useStyles();
-  const handleClick = () => {
-    console.log("clicked");
-  };
+  const handleClick = () => navigate("/calm");
 
   return (
     <div className={classes.container}>
