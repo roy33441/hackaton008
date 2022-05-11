@@ -11,7 +11,8 @@ const useStyles = makeStyles(() => ({
     marginTop: "5vh",
   },
   form: {
-    marginTop: "5vh",
+    marginTop: "3vh",
+    position: "relative",
     width: "100%",
     display: "flex",
     flexDirection: "column",
@@ -53,6 +54,13 @@ const useStyles = makeStyles(() => ({
     },
     ".MuiSelect-select": {
       fontSize: 20,
+      "& .icon": {
+        left: 0,
+        position: "relative",
+      },
+    },
+    "& .MuiSelect-icon": {
+      position: "relative !important",
     },
   },
   stepperContainer: {
@@ -153,7 +161,6 @@ export default function Register() {
               name={type}
               autoComplete={type}
               onChange={(e) => handleChange(e, changeValue)}
-              // className={classes.input}
               sx={{
                 height: 70,
                 "& input + fieldset": {
@@ -175,12 +182,7 @@ export default function Register() {
             className={classes.colorPicker}
           >
             {colors.map(({ color, label }) => (
-              <MenuItem
-                key={color}
-                value={color}
-                style={{ fontSize: 20 }}
-                //   sx={{ fontSize: "20px !important" }}
-              >
+              <MenuItem key={color} value={color} style={{ fontSize: 20 }}>
                 {label}
               </MenuItem>
             ))}
@@ -191,7 +193,7 @@ export default function Register() {
           <FormControl className={classes.form}>
             <TextField
               key="link"
-              variant="standard"
+              variant="filled"
               color="primary"
               label="הכנס סרטון אהוב"
               value={video}
