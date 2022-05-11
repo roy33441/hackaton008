@@ -8,15 +8,11 @@ import Calm from "./pages/Calm";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" component={Home} />
-          <Route path="/register" component={Register} />
-          <Route path="/calm" component={Calm} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/calm" element={<Calm />} />
+    </Routes>
   );
 }
 

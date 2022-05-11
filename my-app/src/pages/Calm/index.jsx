@@ -1,10 +1,11 @@
 import React from "react";
-import { useStyles } from './index';
 
-export default (
+function Calm() {
+  return (
     <div>
-        <button>
-            click me
-        </button>
+      <button>click me</button>
     </div>
-);
+  );
+}
+
+export default Calm;
