@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import Stepper from "./components/stepper";
 import { useNavigate } from "react-router-dom";
-import {
-  TextField,
-  MenuItem,
-  Select,
-  FormControl,
-  Typography,
-  Divider,
-} from "@mui/material";
+import { TextField, MenuItem, FormControl, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
@@ -62,6 +55,12 @@ const useStyles = makeStyles(() => ({
       fontSize: 20,
     },
   },
+  stepperContainer: {
+    width: "100%",
+    marginRight: "10%",
+    position: "fixed",
+    bottom: 30,
+  },
 }));
 
 export default function Register() {
@@ -109,7 +108,18 @@ export default function Register() {
     },
   ];
 
+  const getVideoId = () => {
+    const urlSearchParams = new URLSearchParams(video);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    console.log(params[Object.keys(params)[0]]);
+    return params[Object.keys(params)[0]];
+  };
+
   const finished = () => {
+    localStorage.setItem("phoneNumber", emergency);
+    localStorage.setItem("videoId", getVideoId());
+    localStorage.setItem("name", name);
+    localStorage.setItem("color", color);
     navigate("/");
   };
 
@@ -175,7 +185,6 @@ export default function Register() {
               </MenuItem>
             ))}
           </TextField>
-          <Stepper {...stepperProps} />
         </FormControl>
       ) : (
         <div className={classes.root}>
@@ -203,6 +212,9 @@ export default function Register() {
           </FormControl>
         </div>
       )}
+      <div className={classes.stepperContainer}>
+        <Stepper {...stepperProps} />
+      </div>
     </div>
   );
 }

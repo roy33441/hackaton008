@@ -7,8 +7,6 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import LooksTwoOutlinedIcon from "@mui/icons-material/LooksTwoOutlined";
-import LooksOneOutlinedIcon from "@mui/icons-material/LooksOneOutlined";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
