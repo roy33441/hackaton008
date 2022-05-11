@@ -4,7 +4,9 @@ import Box from "@mui/material/Box";
 import CallIcon from "@mui/icons-material/Call";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-import { IconButton, Dialog } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
+import { Typography, IconButton, Dialog } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   pageContainer: {
@@ -31,6 +33,10 @@ const useStyles = makeStyles({
       fontSize: 100,
     },
   },
+  homeButton: {
+    position: "fixed !important",
+    top: "10px",
+  },
 });
 
 function Calm() {
@@ -47,6 +53,12 @@ function Calm() {
   };
   return (
     <div className={classes.pageContainer}>
+      <IconButton className={classes.homeButton}>
+        <Link to="/">
+          <HomeIcon fontSize="large" style={{ color: "#484343" }} />
+        </Link>
+      </IconButton>
+
       <Box sx={{ "& button": { m: 1 } }}>
         <div className={classes.callContainer}>
           <a href={`tel:${localStorage.getItem("phoneNumber")}`}>
