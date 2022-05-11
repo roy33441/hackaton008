@@ -1,9 +1,11 @@
 import React from "react";
 
-export default (
+function Register() {
+  return (
     <div>
-        <button>
-            click me
-        </button>
+      <button>click me</button>
     </div>
-);
+  );
+}
+
+export default Register;
