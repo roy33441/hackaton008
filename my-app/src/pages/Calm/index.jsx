@@ -4,13 +4,9 @@ import Box from "@mui/material/Box";
 import CallIcon from "@mui/icons-material/Call";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-<<<<<<< HEAD
 import HomeIcon from "@mui/icons-material/Home";
 import { Typography, IconButton, Dialog } from "@mui/material";
 import { Link } from "react-router-dom";
-=======
-import { IconButton, Dialog } from "@mui/material";
->>>>>>> 8e147b7968ecf29aac2133f9bdd0a993367a4e94
 
 const useStyles = makeStyles({
   pageContainer: {
