@@ -9,7 +9,7 @@ import Calm from "./pages/Calm";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route exact path="/" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/calm" element={<Calm />} />
     </Routes>
