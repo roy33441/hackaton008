@@ -80,7 +80,6 @@ function Home() {
 
     // call the function
     fetchData();
-    
   }, []);
 
   const handleClick = () => {
@@ -139,10 +138,10 @@ function Home() {
                 color="#757070"
                 variant="h5"
               >
-                ,{localStorage["name"]} שלום
+                {localStorage["name"]} שלום,
               </Typography>
               <Typography style={{ fontWeight: "bold" }} variant="h4">
-                ?מרגיש לחוץ
+                מרגיש לחוץ?
               </Typography>
             </Button>
           </Box>
