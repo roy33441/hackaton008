@@ -16,6 +16,7 @@
     "extract-zip": "^2.0.1",
     "fit-decoder": "^1.0.5",
     "fit-file-parser": "^1.9.3",
+    "https": "^1.0.0",
     "material-ui": "^0.20.2",
     "material-ui-image": "^3.3.2",
     "node-fetch": "^2.6.7",

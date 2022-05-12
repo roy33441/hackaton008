@@ -13,7 +13,6 @@ app.use(express.static(publicPath));
 
 app.use("/api/garmin", async (req, res) => {
   res.send(await resolveFit());
-  console.log(res.length);
 });
 
 app.use("/api/mail", (req, res) => {
@@ -33,9 +32,9 @@ app.use("/api/mail", (req, res) => {
 
   var mailOptions = {
     from: "hac.hashlama@gmail.com",
-    to: "joel.pavlovsky@gmail.com",
-    subject: "Sending Email using Node.js",
-    text: "בדוק את האוטיסט שלך",
+    to: "aviv.pavlovsky@gmail.com",
+    subject: "נירוונה",
+    text: "היי, יש שינוי מדדים בקרב ילדתך שים לב",
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

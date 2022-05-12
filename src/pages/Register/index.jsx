@@ -9,6 +9,8 @@ const useStyles = makeStyles(() => ({
     direction: "rtl",
     width: "100%",
     marginTop: "5vh",
+    display: "flex",
+    flexDirection: "column",
   },
   form: {
     marginTop: "3vh !important",
@@ -23,13 +25,13 @@ const useStyles = makeStyles(() => ({
       marginTop: "-2vh",
       left: "inherit",
       direction: "rtl",
-      fontSize: "28px",
+      fontSize: "24px",
       fontFamily: "Assistant !important",
     },
     "& .MuiFormControl-root": {
-      paddingBottom: "4.5vw",
+      paddingBottom: "4vw",
       maxWidth: "80%",
-      fontSize: "28px",
+      fontSize: "24px",
       fontFamily: "Assistant !important",
     },
     "& .MuiInputBase-inputMultiline": {
@@ -129,15 +131,9 @@ export default function Register() {
     },
   ];
 
-  const getVideoId = () => {
-    const urlSearchParams = new URLSearchParams(video);
-    const params = Object.fromEntries(urlSearchParams.entries());
-    return params[Object.keys(params)[0]];
-  };
-
   const finished = () => {
     localStorage.setItem("phoneNumber", emergency);
-    localStorage.setItem("videoId", getVideoId());
+    localStorage.setItem("videoId", video);
     localStorage.setItem("name", name);
     localStorage.setItem("color", color);
     localStorage.setItem("userMail", userMail);

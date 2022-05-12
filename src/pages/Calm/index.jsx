@@ -43,6 +43,14 @@ function Calm() {
   const [youTubeOpen, setYouTubeOpen] = React.useState(false);
   localStorage.setItem("image", "photos/chill.jpeg");
 
+  const getVideoId = () => {
+    const urlSearchParams = new URLSearchParams(
+      localStorage.getItem("videoId")
+    );
+    const params = Object.fromEntries(urlSearchParams.entries());
+    return params[Object.keys(params)[0]];
+  };
+
   const handlePhotoClose = () => {
     setPhotoOpen(false);
   };
@@ -120,9 +128,7 @@ function Calm() {
           type="text/html"
           width="300"
           height="230"
-          src={`https://www.youtube.com/embed/${localStorage.getItem(
-            "videoId"
-          )}?autoplay=1&mute=1&enablejsapi=1`}
+          src={`https://www.youtube.com/embed/${getVideoId()}?autoplay=1&mute=1&enablejsapi=1`}
           allow="autoplay"
           title="video"
         ></iframe>

@@ -53,19 +53,14 @@ exports.resolveFit = async () => {
         index += 1;
       }
     }
-    console.log(neededFile[index]);
-
     const { records } = fitDecoder.parseRecords(jsonRaw);
     const heartsRates = records
       .filter(({ data }) => data["heart_rate"] !== undefined)
       .map(({ data }) => data.heart_rate);
-    console.log(heartsRates);
-    console.log(heartsRates.length);
     fs.rmSync(publicPath, { recursive: true, force: true });
     fs.rmSync("data.zip");
     return heartsRates;
   } catch (err) {
-    console.log(err);
     return;
   }
   fs.rmSync(publicPath, { recursive: true, force: true });

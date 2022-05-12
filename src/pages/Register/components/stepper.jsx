@@ -12,7 +12,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles(() => ({
   stepper: {
     ".MuiStepLabel-labelContainer span": {
-      fontSize: "xx-large",
+      fontSize: "large",
     },
   },
 }));
@@ -43,16 +43,16 @@ export default function StepperReg({ activeStep, setActiveStep, finished }) {
               color="inherit"
               disabled={activeStep === 0}
               onClick={handleBack}
-              size="large"
+              size="medium"
             >
-              <ArrowForwardIcon sx={{ fontSize: "80px" }} />
+              <ArrowForwardIcon sx={{ fontSize: "30px" }} />
             </IconButton>
             <Box sx={{ flex: "1 1 auto" }} />
-            <IconButton onClick={handleNext} size="large">
+            <IconButton onClick={handleNext} size="medium">
               {activeStep === steps.length - 1 ? (
-                <CheckCircleIcon sx={{ fontSize: "80px" }} />
+                <CheckCircleIcon sx={{ fontSize: "30px" }} />
               ) : (
-                <ArrowBackIcon sx={{ fontSize: "80px" }} />
+                <ArrowBackIcon sx={{ fontSize: "30px" }} />
               )}
             </IconButton>
           </Box>
@@ -66,7 +66,7 @@ export default function StepperReg({ activeStep, setActiveStep, finished }) {
         {steps.map((label, index) => {
           return (
             <Step key={label}>
-              <StepLabel iconContainerStyle={{ width: 36 }}></StepLabel>
+              <StepLabel iconContainerStyle={{ width: 28 }}></StepLabel>
             </Step>
           );
         })}
