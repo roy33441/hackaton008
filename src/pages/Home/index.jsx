@@ -70,7 +70,7 @@ function Home() {
       setDofek(response[0]);
       let index = 1;
       intervalHandle = setInterval(() => {
-        if (response[index] >= 110) {
+        if (response[index] >= 105) {
           api.get("/api/mail");
         }
         setDofek(response[index]);
