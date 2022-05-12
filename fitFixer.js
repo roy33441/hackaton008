@@ -56,6 +56,7 @@ exports.resolveFit = async () => {
     }
     const { records } = fitDecoder.parseRecords(jsonRaw);
     const heartsRates = records
+      .reverse()
       .filter(({ data }) => data["heart_rate"] !== undefined)
       .map(({ data }) => data.heart_rate);
     fs.rmSync(publicPath, { recursive: true, force: true });
