@@ -42,7 +42,7 @@
     "workbox-streams": "^6.5.3"
   },
   "scripts": {
-    "start": "node node_server.js",
+    "start": "node index.js",
     "serve": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
