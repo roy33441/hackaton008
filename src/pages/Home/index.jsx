@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     borderRadius: "50%",
     width: "75%",
     height: "35%",
-    backgroundColor: "rgb(6, 205, 214)",
+    backgroundColor: (props) => props.color,
   },
   innerBox: {
     justifyContent: "center",
@@ -70,7 +70,12 @@ function Home() {
         alt="nirvana"
         src={img}
       />
-      <Box className={classes.outerBox}>
+      <Box
+        className={classes.outerBox}
+        style={{
+          backgroundColor: localStorage.getItem("color") || "rgb(6, 205, 214)",
+        }}
+      >
         <Box className={classes.innerBox}>
           <Button
             style={{
@@ -78,7 +83,8 @@ function Home() {
               borderRadius: "50%",
               width: "93%",
               height: "93%",
-              backgroundColor: "rgb(6, 205, 214)",
+              backgroundColor:
+                localStorage.getItem("color") || "rgb(6, 205, 214)",
               display: "block",
             }}
             variant="outlined"

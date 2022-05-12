@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
 import CallIcon from "@mui/icons-material/Call";
@@ -18,9 +18,7 @@ const useStyles = makeStyles({
     display: "flex",
   },
   callContainer: {
-    backgroundColor: "rgb(6, 205, 214)",
     borderRadius: "35%",
-
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -40,7 +38,7 @@ const useStyles = makeStyles({
 });
 
 function Calm() {
-  const classes = useStyles();
+  let classes = useStyles();
   const [photoOpen, setPhotoOpen] = React.useState(false);
   const [youTubeOpen, setYouTubeOpen] = React.useState(false);
   localStorage.setItem("image", "photos/chill.jpeg");
@@ -60,14 +58,27 @@ function Calm() {
       </IconButton>
 
       <Box sx={{ "& button": { m: 1 } }}>
-        <div className={classes.callContainer}>
+        <div
+          className={classes.callContainer}
+          style={{
+            backgroundColor:
+              localStorage.getItem("color") || "rgb(6, 205, 214)",
+          }}
+        >
           <a href={`tel:${localStorage.getItem("phoneNumber")}`}>
             <IconButton className={classes.buttonContainer}>
               <CallIcon />
             </IconButton>
           </a>
         </div>
-        <div className={classes.callContainer}>
+
+        <div
+          className={classes.callContainer}
+          style={{
+            backgroundColor:
+              localStorage.getItem("color") || "rgb(6, 205, 214)",
+          }}
+        >
           <IconButton
             onClick={() => setYouTubeOpen(true)}
             className={classes.buttonContainer}
@@ -75,7 +86,13 @@ function Calm() {
             <PlayCircleFilledWhiteIcon />
           </IconButton>
         </div>
-        <div className={classes.callContainer}>
+        <div
+          className={classes.callContainer}
+          style={{
+            backgroundColor:
+              localStorage.getItem("color") || "rgb(6, 205, 214)",
+          }}
+        >
           <IconButton
             onClick={() => setPhotoOpen(true)}
             className={classes.buttonContainer}
