@@ -80,6 +80,7 @@ function Home() {
 
     // call the function
     fetchData();
+    
   }, []);
 
   const handleClick = () => {
