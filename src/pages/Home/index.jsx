@@ -64,17 +64,22 @@ function Home() {
 
   let intervalHandle;
 
-  useEffect(async () => {
-    const response = await (await api.get("/api/garmin")).data;
-    setDofek(response[0]);
-    let index = 1;
-    intervalHandle = setInterval(() => {
-      if (response[index] >= 120) {
-        api.get("/api/mail");
-      }
-      setDofek(response[index]);
-      index = (index + 1) % (response.length - 1);
-    }, 2000);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await (await api.get("/api/garmin")).data;
+      setDofek(response[0]);
+      let index = 1;
+      intervalHandle = setInterval(() => {
+        if (response[index] >= 110) {
+          api.get("/api/mail");
+        }
+        setDofek(response[index]);
+        index = (index + 1) % (response.length - 1);
+      }, 2000);
+    };
+
+    // call the function
+    fetchData();
   }, []);
 
   const handleClick = () => {

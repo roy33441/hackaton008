@@ -151,11 +151,11 @@ export default function Register() {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h3" className={classes.title}>
+      <Typography variant="h4" className={classes.title}>
         ברוכים הבאים,{" "}
       </Typography>
       <br />
-      <Typography variant="h4" className={classes.title}>
+      <Typography variant="h5" className={classes.title}>
         נשאר רק ממש טיפה למלא
       </Typography>
       {activeStep === 0 ? (
