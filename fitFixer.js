@@ -34,9 +34,9 @@ exports.resolveFit = async () => {
     await extract("data.zip", { dir: publicPath });
     console.log("Extraction complete");
     const files = fs.readdirSync(publicPath);
-    const neededFile = files
-      .reverse()
-      .filter((filename) => filename.includes("WELLNESS"));
+    const neededFile = files.filter((filename) =>
+      filename.includes("WELLNESS")
+    );
     let found = false;
     let index = 1;
     let jsonRaw;
