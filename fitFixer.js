@@ -40,6 +40,7 @@ exports.resolveFit = async () => {
     let found = false;
     let index = 1;
     let jsonRaw;
+
     while (!found) {
       try {
         let file = await fs.promises.readFile(
