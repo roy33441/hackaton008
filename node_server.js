@@ -1,5 +1,6 @@
 // const http = require("http");
 const path = require("path");
+const { resolveFit } = require("./fitFixer");
 
 const hostname = "127.0.0.1";
 const port = process.env.PORT || 3000;
@@ -10,6 +11,11 @@ const app = express();
 const publicPath = path.join(__dirname, "build");
 
 app.use(express.static(publicPath));
+
+app.use("/api/garmin", async (req, res) => {
+  res.send(await resolveFit());
+  console.log(res.length);
+});
 
 app.use("/api/mail", (req, res) => {
   var nodemailer = require("nodemailer");
