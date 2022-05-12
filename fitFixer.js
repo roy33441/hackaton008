@@ -34,9 +34,9 @@ exports.resolveFit = async () => {
     await extract("data.zip", { dir: publicPath });
     console.log("Extraction complete");
     const files = fs.readdirSync(publicPath);
-    const neededFile = files.filter((filename) =>
-      filename.includes("WELLNESS")
-    );
+    const neededFile = files
+      .reverse()
+      .filter((filename) => filename.includes("WELLNESS"));
     let found = false;
     let index = 1;
     let jsonRaw;
@@ -56,7 +56,6 @@ exports.resolveFit = async () => {
     }
     const { records } = fitDecoder.parseRecords(jsonRaw);
     const heartsRates = records
-      .reverse()
       .filter(({ data }) => data["heart_rate"] !== undefined)
       .map(({ data }) => data.heart_rate);
     fs.rmSync(publicPath, { recursive: true, force: true });
