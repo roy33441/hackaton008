@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Stepper from "./components/stepper";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, FormControl, Typography } from "@mui/material";
@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
     marginTop: "5vh",
   },
   form: {
-    marginTop: "3vh",
+    marginTop: "3vh !important",
     position: "relative",
     width: "100%",
     display: "flex",
@@ -83,11 +83,24 @@ export default function Register() {
   const [video, setVideo] = useState("");
   const [color, setColor] = useState("");
 
+  useEffect(() => {
+    localStorage.getItem("userMail") &&
+      setUserMail(localStorage.getItem("userMail"));
+    localStorage.getItem("phoneNumber") &&
+      setEmergency(localStorage.getItem("phoneNumber"));
+    localStorage.getItem("parentName") &&
+      setParentName(localStorage.getItem("parentName"));
+    localStorage.getItem("name") && setName(localStorage.getItem("name"));
+    localStorage.getItem("videoId") &&
+      setVideo(localStorage.getItem("videoId"));
+    localStorage.getItem("color") && setColor(localStorage.getItem("color"));
+  }, []);
+
   const colors = [
-    { color: "blue", label: "כחול" },
-    { color: "red", label: "אדום" },
-    { color: "yellow", label: "צהוב" },
-    { color: "green", label: "ירוק" },
+    { color: "#6d9ef1", label: "כחול" },
+    { color: "#ff3636", label: "אדום" },
+    { color: "#f0f859", label: "צהוב" },
+    { color: "#77ec90", label: "ירוק" },
   ];
   const textFields = [
     {
@@ -119,7 +132,6 @@ export default function Register() {
   const getVideoId = () => {
     const urlSearchParams = new URLSearchParams(video);
     const params = Object.fromEntries(urlSearchParams.entries());
-    console.log(params[Object.keys(params)[0]]);
     return params[Object.keys(params)[0]];
   };
 
@@ -128,6 +140,8 @@ export default function Register() {
     localStorage.setItem("videoId", getVideoId());
     localStorage.setItem("name", name);
     localStorage.setItem("color", color);
+    localStorage.setItem("userMail", userMail);
+    localStorage.setItem("parentName", parentName);
     navigate("/");
   };
 
@@ -156,7 +170,7 @@ export default function Register() {
               variant="standard"
               color="primary"
               label={label}
-              value={value}
+              value={value || ""}
               type={type}
               name={type}
               autoComplete={type}
@@ -176,7 +190,7 @@ export default function Register() {
             id="outlined-select-currency"
             select
             label="צבע אהוב"
-            value={color}
+            value={color || ""}
             onChange={(e) => handleChange(e, setColor)}
             helperText="בחר בבקשה את הצבע האהוב שלך"
             className={classes.colorPicker}
@@ -196,7 +210,7 @@ export default function Register() {
               variant="filled"
               color="primary"
               label="הכנס סרטון אהוב"
-              value={video}
+              value={video || ""}
               type="link"
               name="link"
               autoComplete="link"
