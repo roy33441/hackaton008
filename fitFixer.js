@@ -38,7 +38,7 @@ exports.resolveFit = async () => {
       .reverse()
       .filter((filename) => filename.includes("WELLNESS"));
     let found = false;
-    let index = 0;
+    let index = 1;
     let jsonRaw;
     while (!found) {
       try {
